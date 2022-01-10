@@ -30,15 +30,18 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_ongoing_movies"
-            adapter="@{adapter}"
-            submitList="@{viewModel.ongoingMoviesList}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_l"
+            android:orientation="horizontal"
+            app:adapter="@{adapter}"
+            app:dividerSize="@{@dimen/ongoing_movies_separator}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_ongoing_movies" />
+            app:layout_constraintTop_toBottomOf="@+id/text_view_ongoing_movies"
+            app:paging="@{true}"
+            app:submitList="@{viewModel.ongoingMoviesList}" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_view_popular_movies"

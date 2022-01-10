@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.imdb.base.BaseViewModel
 import com.example.imdb.data.remote.model.movies.ongoing.GetOngoingMoviesResponseModel
 import com.example.imdb.domain.MoviesUseCase
+import com.example.imdb.util.general.Constants.Common.ROUNDED_RADIUS
 import com.example.imdb.util.general.UseCase
 import com.example.imdb.util.listener.ListAdapterClickListener
 import com.example.imdb.view.uimodel.OngoingMovieUiModel
@@ -29,7 +30,7 @@ class MoviesViewModel @Inject constructor(
         var moviesList: List<OngoingMovieUiModel>? = null
         list?.results?.let {
             if (it.isNotEmpty()) {
-                moviesList = it.map { movie -> movie.toUiModel() }
+                moviesList = it.map { movie -> movie.toUiModel(ROUNDED_RADIUS) }
             }
         }
         ongoingMoviesList.postValue(moviesList)
