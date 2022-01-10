@@ -1,50 +1,55 @@
 package com.example.imdb.data.remote.model.movies.ongoing
 
 import androidx.annotation.Keep
+import com.example.imdb.view.uimodel.OngoingMovieUiModel
+import com.squareup.moshi.Json
 
 @Keep
 data class GetOngoingMoviesResponseModel(
-    val errorMessage: String?,
-    val items: List<Item>?
+    @Json(name ="dates") val dates: Dates?,
+    @Json(name ="page") val page: Int?,
+    @Json(name ="results") val results: List<Result>?,
+    @Json(name ="total_pages") val totalPages: Int?,
+    @Json(name ="total_results") val totalResults: Int?
 )
 
 @Keep
-data class Item(
-    val contentRating: String?,
-    val directorList: List<Director>?,
-    val directors: String?,
-    val fullTitle: String?,
-    val genreList: List<Genre>?,
-    val genres: String?,
-    val id: String?,
-    val imDbRating: String?,
-    val imDbRatingCount: String?,
-    val image: String?,
-    val metacriticRating: String?,
-    val plot: String?,
-    val releaseState: String?,
-    val runtimeMins: String?,
-    val runtimeStr: String?,
-    val starList: List<Star>?,
-    val stars: String?,
-    val title: String?,
-    val year: String?
+data class Dates(
+    @Json(name ="maximum") val maximum: String?,
+    @Json(name ="minimum") val minimum: String?
 )
 
 @Keep
-data class Director(
-    val id: String?,
-    val name: String?
-)
-
-@Keep
-data class Genre(
-    val key: String?,
-    val value: String?
-)
-
-@Keep
-data class Star(
-    val id: String?,
-    val name: String?
-)
+data class Result(
+    @Json(name ="adult") val adult: Boolean?,
+    @Json(name ="backdrop_path") val backdropPath: String?,
+    @Json(name ="genre_ids") val genreIds: List<Int>?,
+    @Json(name ="id") val id: Int?,
+    @Json(name ="original_language") val originalLanguage: String?,
+    @Json(name ="original_title") val originalTitle: String?,
+    @Json(name ="overview") val overview: String?,
+    @Json(name ="popularity") val popularity: Double?,
+    @Json(name ="poster_path") val posterPath: String?,
+    @Json(name ="release_date") val releaseDate: String?,
+    @Json(name ="title") val title: String?,
+    @Json(name ="video") val video: Boolean?,
+    @Json(name ="vote_average") val voteAverage: Double?,
+    @Json(name ="vote_count") val voteCount: Int?
+) {
+    fun toUiModel() = OngoingMovieUiModel(
+        adult = adult,
+        backdropPath = backdropPath,
+        genreIds = genreIds,
+        id = id,
+        originalLanguage = originalLanguage,
+        originalTitle = originalTitle,
+        overview = overview,
+        popularity = popularity,
+        posterPath = posterPath,
+        releaseDate = releaseDate,
+        title = title,
+        video = video,
+        voteAverage = voteAverage,
+        voteCount = voteCount
+    )
+}

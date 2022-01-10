@@ -2,6 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.imdb.scene.movies.MoviesViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.example.imdb.adapter.OngoingMoviesAdapter" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,9 +30,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_ongoing_movies"
+            adapter="@{adapter}"
+            submitList="@{viewModel.ongoingMoviesList}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_l"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_ongoing_movies" />

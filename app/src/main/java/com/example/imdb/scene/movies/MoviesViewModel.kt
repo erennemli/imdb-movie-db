@@ -7,6 +7,8 @@ import com.example.imdb.base.BaseViewModel
 import com.example.imdb.data.remote.model.movies.ongoing.GetOngoingMoviesResponseModel
 import com.example.imdb.domain.MoviesUseCase
 import com.example.imdb.util.general.UseCase
+import com.example.imdb.util.listener.ListAdapterClickListener
+import com.example.imdb.view.uimodel.OngoingMovieUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,12 +17,24 @@ import javax.inject.Inject
 class MoviesViewModel @Inject constructor(
     private val moviesUseCase: MoviesUseCase,
     application: Application
-) : BaseViewModel(application) {
+) : BaseViewModel(application), ListAdapterClickListener<OngoingMovieUiModel> {
 
-    val movieInfo: MutableLiveData<GetOngoingMoviesResponseModel> = MutableLiveData()
+    val ongoingMoviesList: MutableLiveData<List<OngoingMovieUiModel>> = MutableLiveData()
 
     fun getMovieInformationWithExpression() = viewModelScope.launch {
-        movieInfo.postValue(moviesUseCase.run(UseCase.None)
-            .getRightHandleLeft {  })
+        moviesUseCase.run(UseCase.None).either(::handleFailure, ::handleOngoingMoviesList)
+    }
+
+    private fun handleOngoingMoviesList(list: GetOngoingMoviesResponseModel?) {
+        var moviesList: List<OngoingMovieUiModel>? = null
+        list?.results?.let {
+            if (it.isNotEmpty()) {
+                moviesList = it.map { movie -> movie.toUiModel() }
+            }
+        }
+        ongoingMoviesList.postValue(moviesList)
+    }
+
+    override fun onAdapterItemClicked(uiModel: OngoingMovieUiModel) {
     }
 }

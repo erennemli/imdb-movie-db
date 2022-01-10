@@ -10,6 +10,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import com.example.imdb.util.general.Event
+import com.example.imdb.util.general.Failure
 import com.example.imdb.util.navigation.NavigationCommand
 
 abstract class BaseViewModel(application: Application): AndroidViewModel(application) {
@@ -33,5 +34,9 @@ abstract class BaseViewModel(application: Application): AndroidViewModel(applica
 
     fun navigateBack() {
         _navigation.value = Event(NavigationCommand.Back)
+    }
+
+    protected open fun handleFailure(failure: Failure) {
+
     }
 }
