@@ -16,4 +16,5 @@
     <dimen name="title">24sp</dimen>
     <dimen name="subtitle">18sp</dimen>
     <dimen name="subtitle2">16sp</dimen>
+    <dimen name="rating">14sp</dimen>
 </resources>
