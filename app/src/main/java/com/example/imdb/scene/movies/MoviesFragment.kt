@@ -2,6 +2,7 @@ package com.example.imdb.scene.movies
 
 import com.example.imdb.R
 import com.example.imdb.adapter.OngoingMoviesAdapter
+import com.example.imdb.adapter.PopularMoviesAdapter
 import com.example.imdb.base.BaseFragment
 import com.example.imdb.databinding.FragmentMoviesBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,7 +15,8 @@ class MoviesFragment : BaseFragment<MoviesViewModel, FragmentMoviesBinding>(
         super.initialize()
         with(binder) {
             viewModel = this@MoviesFragment.viewModel
-            adapter = OngoingMoviesAdapter(this@MoviesFragment.viewModel)
+            adapterOngoing = OngoingMoviesAdapter(this@MoviesFragment.viewModel)
+            adapterPopular = PopularMoviesAdapter(this@MoviesFragment.viewModel)
         }
         with(viewModel) {
             getMovieGenres()

@@ -29,7 +29,7 @@ data class Result(
     @Json(name = "vote_average") val voteAverage: Double?,
     @Json(name = "vote_count") val voteCount: Int?
 ) {
-    fun toUiModel() = PopularMoviesUiModel(
+    fun toUiModel(radius: Int?, genres: String?) = PopularMoviesUiModel(
         adult = adult,
         backdropPath = backdropPath,
         genreIds = genreIds,
@@ -43,6 +43,8 @@ data class Result(
         title = title,
         video = video,
         voteAverage = voteAverage,
-        voteCount = voteCount
+        voteCount = voteCount,
+        imageRoundedRadius = radius,
+        genresString = genres
     )
 }

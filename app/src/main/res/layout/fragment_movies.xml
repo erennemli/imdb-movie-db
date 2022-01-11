@@ -9,8 +9,12 @@
             type="com.example.imdb.scene.movies.MoviesViewModel" />
 
         <variable
-            name="adapter"
+            name="adapterOngoing"
             type="com.example.imdb.adapter.OngoingMoviesAdapter" />
+
+        <variable
+            name="adapterPopular"
+            type="com.example.imdb.adapter.PopularMoviesAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_l"
                 android:orientation="horizontal"
-                app:adapter="@{adapter}"
+                app:adapter="@{adapterOngoing}"
                 app:dividerSize="@{@dimen/ongoing_movies_separator}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +57,7 @@
                 style="@style/TitleBlueStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_xl"
+                android:layout_marginTop="@dimen/margin_m"
                 android:text="@string/movies_popular_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_view_ongoing_movies" />
@@ -62,11 +66,16 @@
                 android:id="@+id/recycler_view_popular_movies"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="@dimen/margin_l"
+                android:layout_marginTop="@dimen/margin_m"
+                android:orientation="vertical"
+                app:adapter="@{adapterPopular}"
+                app:dividerSize="@{@dimen/popular_movies_separator}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_popular_movies" />
+                app:layout_constraintTop_toBottomOf="@+id/text_view_popular_movies"
+                app:submitList="@{viewModel.popularMoviesList}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
