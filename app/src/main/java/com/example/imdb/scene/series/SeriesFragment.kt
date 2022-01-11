@@ -8,4 +8,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SeriesFragment : BaseFragment<SeriesViewModel, FragmentSeriesBinding>(
     R.layout.fragment_series
-)
+) {
+    override fun initialize() {
+        super.initialize()
+        viewModel.getTopRatedSeries()
+    }
+}
