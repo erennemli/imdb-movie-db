@@ -12,6 +12,9 @@
     <dimen name="ongoing_movie_poster_width">180dp</dimen>
     <dimen name="ongoing_movies_separator">100dp</dimen>
 
+    <dimen name="popular_movies_poster_height">70dp</dimen>
+    <dimen name="popular_movies_poster_width">40dp</dimen>
+
     <!-- text size -->
     <dimen name="title">24sp</dimen>
     <dimen name="subtitle">18sp</dimen>
