@@ -40,7 +40,7 @@
             style="@style/SubTitle2Style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{uiModel.title}"
+            android:text="@{uiModel.genresString}"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

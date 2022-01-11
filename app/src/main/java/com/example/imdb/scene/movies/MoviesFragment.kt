@@ -16,6 +16,9 @@ class MoviesFragment : BaseFragment<MoviesViewModel, FragmentMoviesBinding>(
             viewModel = this@MoviesFragment.viewModel
             adapter = OngoingMoviesAdapter(this@MoviesFragment.viewModel)
         }
-        viewModel.getMovieInformationWithExpression()
+        with(viewModel) {
+            getMovieGenres()
+            getMovieInformationWithExpression()
+        }
     }
 }

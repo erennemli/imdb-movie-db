@@ -1,6 +1,5 @@
 package com.example.imdb.view.uimodel
 
-import com.example.imdb.data.remote.model.movies.genre.Genre
 import com.example.imdb.util.general.ListAdapterItem
 
 data class OngoingMovieUiModel(
