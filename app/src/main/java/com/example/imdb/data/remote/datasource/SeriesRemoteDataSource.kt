@@ -13,4 +13,8 @@ class SeriesRemoteDataSource @Inject constructor(
     suspend fun getTopRatedSeries() = invoke {
         seriesService.getTopRatedSeries()
     }
+
+    suspend fun getSeriesGenres() = invoke {
+        seriesService.getSeriesGenres()
+    }
 }

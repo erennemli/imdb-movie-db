@@ -17,5 +17,7 @@ data class TopRatedSeriesUiModel(
     val popularity: Double?,
     val posterPath: String?,
     val voteAverage: Double?,
-    val voteCount: Int?
+    val voteCount: Int?,
+    val imageRoundedRadius: Int?,
+    var genresString: String? = null
 ) : ListAdapterItem

@@ -16,6 +16,10 @@ class SeriesFragment : BaseFragment<SeriesViewModel, FragmentSeriesBinding>(
             viewModel = this@SeriesFragment.viewModel
             adapterTopRated = TopRatedSeriesAdapter(this@SeriesFragment.viewModel)
         }
-        viewModel.getTopRatedSeries()
+
+        with(viewModel) {
+            getSeriesGenres()
+            getTopRatedSeries()
+        }
     }
 }
