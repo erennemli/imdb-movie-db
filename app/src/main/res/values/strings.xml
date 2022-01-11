@@ -7,4 +7,6 @@
     <string name="profile_text">Profile</string>
     <string name="movies_ongoing_text">Ongoing movies</string>
     <string name="movies_popular_text">Popular movies</string>
+    <string name="series_top_rated_text">Top rated series</string>
+    <string name="series_popular_text">Popular series</string>
 </resources>
