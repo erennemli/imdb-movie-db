@@ -4,5 +4,7 @@ object Constants {
     object Common {
         const val ZERO = 0
         const val ROUNDED_RADIUS = 16
+        const val COMMA_SEPARATOR = ", "
+        const val EMPTY = ""
     }
 }

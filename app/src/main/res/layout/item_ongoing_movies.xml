@@ -26,7 +26,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_view_ongoing_movies_title"
             style="@style/SubTitleStyle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_l"
             android:text="@{uiModel.title}"
@@ -38,17 +38,20 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_view_ongoing_movies_genre"
             style="@style/SubTitle2Style"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{uiModel.title}"
+            android:text="@{uiModel.genresString}"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_ongoing_movies_title" />
 
         <LinearLayout
+            android:id="@+id/container_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_m"
+            android:layout_marginTop="@dimen/margin_m"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_ongoing_movies_genre">

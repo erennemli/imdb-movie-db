@@ -1,8 +1,10 @@
 package com.example.imdb.view.uimodel
 
+import androidx.annotation.Keep
 import com.example.imdb.util.general.ListAdapterItem
 
-data class OngoingMovieUiModel(
+@Keep
+data class PopularMoviesUiModel(
     val adult: Boolean?,
     val backdropPath: String?,
     val genreIds: List<Int>?,

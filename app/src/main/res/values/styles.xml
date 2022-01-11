@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TitleStyle" parent="Widget.AppCompat.TextView">
+    <style name="TitleWhiteStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="TitleBlueStyle" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/main</item>
         <item name="android:textSize">@dimen/title</item>
         <item name="android:textStyle">bold</item>
