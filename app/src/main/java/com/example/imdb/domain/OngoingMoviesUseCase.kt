@@ -6,7 +6,7 @@ import com.example.imdb.util.general.UseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
-class MoviesUseCase @Inject constructor(
+class OngoingMoviesUseCase @Inject constructor(
     dispatcher: CoroutineDispatcher,
     private val moviesRepository: MoviesRepository
 ) : UseCase<GetOngoingMoviesResponseModel?, UseCase.None>(dispatcher) {

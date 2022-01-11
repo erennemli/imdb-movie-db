@@ -1,5 +1,6 @@
 package com.example.imdb.view.uimodel
 
+import com.example.imdb.data.remote.model.movies.genre.Genre
 import com.example.imdb.util.general.ListAdapterItem
 
 data class OngoingMovieUiModel(
@@ -17,5 +18,6 @@ data class OngoingMovieUiModel(
     val video: Boolean?,
     val voteAverage: Double?,
     val voteCount: Int?,
-    val imageRoundedRadius: Int?
+    val imageRoundedRadius: Int?,
+    var genresString: String? = null
 ) : ListAdapterItem

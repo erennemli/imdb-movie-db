@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.imdb.base.BaseViewModel
 import com.example.imdb.data.remote.model.movies.ongoing.GetOngoingMoviesResponseModel
-import com.example.imdb.domain.MoviesUseCase
+import com.example.imdb.domain.OngoingMoviesUseCase
 import com.example.imdb.util.general.Constants.Common.ROUNDED_RADIUS
 import com.example.imdb.util.general.UseCase
 import com.example.imdb.util.listener.ListAdapterClickListener
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MoviesViewModel @Inject constructor(
-    private val moviesUseCase: MoviesUseCase,
+    private val moviesUseCase: OngoingMoviesUseCase,
     application: Application
 ) : BaseViewModel(application), ListAdapterClickListener<OngoingMovieUiModel> {
 

@@ -13,4 +13,8 @@ class MoviesRemoteDataSource @Inject constructor(
     suspend fun getOngoingMovies() = invoke {
         moviesService.getOngoingMovies()
     }
+
+    suspend fun getMovieGenres() = invoke {
+        moviesService.getMovieGenres()
+    }
 }

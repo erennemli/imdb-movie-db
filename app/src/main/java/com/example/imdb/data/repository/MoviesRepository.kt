@@ -11,4 +11,7 @@ class MoviesRepository @Inject constructor(
 
     suspend fun getOngoingMovies() =
         moviesRemoteDataSource.getOngoingMovies()
+
+    suspend fun getMovieGenres() =
+        moviesRemoteDataSource.getMovieGenres()
 }
