@@ -9,6 +9,7 @@ import com.example.imdb.BuildConfig
 import com.example.imdb.base.BaseAdapter
 import com.example.imdb.util.extension.loadImage
 import com.example.imdb.util.extension.loadRoundedImage
+import com.example.imdb.util.extension.loadSpecificCornerRoundedImage
 import com.example.imdb.util.general.ListAdapterItem
 
 @BindingAdapter("adapter")
@@ -55,6 +56,32 @@ fun setRoundedImage(
 
     view.loadRoundedImage(
         url = BuildConfig.IMAGE_URL + url,
+        placeholderRes = placeholderRes ?: defaultDrawable,
+        errorRes = errorRes ?: defaultDrawable,
+        radius = radius
+    )
+}
+
+@BindingAdapter("imageSpecificCornerFromUrl", "bottomLeft", "bottomRight", "topLeft", "topRight", "placeHolderRes", "errorRes", "radius", requireAll = false)
+fun setSpecificCornerRoundedImage(
+    view: ImageView,
+    url: String?,
+    bottomLeft: Float = 0f,
+    bottomRight: Float = 0f,
+    topLeft: Float = 0f,
+    topRight: Float = 0f,
+    @DrawableRes placeholderRes: Int?,
+    @DrawableRes errorRes: Int?,
+    radius: Int?
+) {
+    val defaultDrawable = android.R.drawable.stat_notify_error
+
+    view.loadSpecificCornerRoundedImage(
+        url = BuildConfig.IMAGE_URL + url,
+        bottomLeft = bottomLeft,
+        bottomRight = bottomRight,
+        topLeft = topLeft,
+        topRight = topRight,
         placeholderRes = placeholderRes ?: defaultDrawable,
         errorRes = errorRes ?: defaultDrawable,
         radius = radius
