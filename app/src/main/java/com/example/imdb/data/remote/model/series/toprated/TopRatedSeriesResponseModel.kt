@@ -7,13 +7,13 @@ import com.squareup.moshi.Json
 @Keep
 data class TopRatedSeriesResponseModel(
     @Json(name = "page") val page: Int?,
-    @Json(name = "results") val results: List<Result>?,
+    @Json(name = "results") val resultTopRatedSeries: List<ResultTopRatedSeries>?,
     @Json(name = "total_pages") val totalPages: Int?,
     @Json(name = "total_results") val totalResults: Int?
 )
 
 @Keep
-data class Result(
+data class ResultTopRatedSeries(
     @Json(name = "backdrop_path") val backdropPath: String?,
     @Json(name = "first_air_date") val firstAirDate: String?,
     @Json(name = "genre_ids") val genreIds: List<Int>?,

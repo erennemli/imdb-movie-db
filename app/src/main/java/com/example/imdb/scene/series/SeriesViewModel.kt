@@ -5,12 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.imdb.base.BaseViewModel
 import com.example.imdb.data.remote.model.series.genre.SeriesGenreResponseModel
-import com.example.imdb.data.remote.model.series.toprated.Result
 import com.example.imdb.data.remote.model.series.toprated.TopRatedSeriesResponseModel
 import com.example.imdb.domain.SeriesGenresUseCase
 import com.example.imdb.domain.TopRatedSeriesUseCase
-import com.example.imdb.util.general.Constants
-import com.example.imdb.util.general.Constants.Common.COMMA_SEPARATOR
 import com.example.imdb.util.general.Constants.Common.ROUNDED_RADIUS
 import com.example.imdb.util.general.ListAdapterItem
 import com.example.imdb.util.general.UseCase
@@ -28,7 +25,6 @@ class SeriesViewModel @Inject constructor(
 ) : BaseViewModel(application), ListAdapterClickListener<ListAdapterItem> {
 
     val topRatedSeriesLiveData: MutableLiveData<List<TopRatedSeriesUiModel>> = MutableLiveData()
-    private val genres = hashMapOf<Int, String>()
 
     fun getTopRatedSeries() = viewModelScope.launch {
         topRatedSeriesUseCase.run(UseCase.None).either(
@@ -41,7 +37,7 @@ class SeriesViewModel @Inject constructor(
     }
 
     private fun handleTopRatedSeries(list: TopRatedSeriesResponseModel?) {
-        list?.results?.let { results ->
+        list?.resultTopRatedSeries?.let { results ->
             if (results.isNotEmpty()) {
                 topRatedSeriesLiveData.postValue(results.map { series ->
                     series.toUiModel(ROUNDED_RADIUS, getGenresAsString(series))
@@ -53,19 +49,6 @@ class SeriesViewModel @Inject constructor(
     private fun handleSeriesGenres(list: SeriesGenreResponseModel?) {
         list?.genres?.forEach { genre ->
             genres[genre.id ?: 0] = genre.name ?: ""
-        }
-    }
-
-    private fun <T> getGenresAsString(series: T?): String? {
-        return when (series) {
-            is Result? -> {
-                series?.genreIds?.map { id -> genres[id] }
-                    ?.joinToString(COMMA_SEPARATOR)
-            }
-
-            else -> {
-                Constants.Common.EMPTY
-            }
         }
     }
 
