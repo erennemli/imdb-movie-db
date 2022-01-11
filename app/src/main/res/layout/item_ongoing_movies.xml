@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="uiModel"
+            type="com.example.imdb.view.uimodel.OngoingMovieUiModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_view_ongoing_movie_poster"
+            radius="@{uiModel.imageRoundedRadius}"
+            roundedImageFromUrl="@{uiModel.posterPath}"
+            android:layout_width="@dimen/ongoing_movie_poster_width"
+            android:layout_height="@dimen/ongoing_movie_poster_height"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_ongoing_movies_title"
+            style="@style/SubTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_l"
+            android:text="@{uiModel.title}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_view_ongoing_movie_poster" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_ongoing_movies_genre"
+            style="@style/SubTitle2Style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{uiModel.title}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_ongoing_movies_title" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_ongoing_movies_genre">
+
+            <include
+                layout="@layout/item_rating"
+                android:rating="@{uiModel.voteAverage}" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

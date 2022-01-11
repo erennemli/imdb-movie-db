@@ -2,19 +2,66 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.imdb.scene.movies.MoviesViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.example.imdb.adapter.OngoingMoviesAdapter" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/margin_l"
+        android:layout_marginTop="@dimen/margin_l">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_ongoing_movies"
+            style="@style/TitleStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/movies_text"
-            android:textAlignment="center"
+            android:text="@string/movies_ongoing_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_ongoing_movies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_l"
+            android:orientation="horizontal"
+            app:adapter="@{adapter}"
+            app:dividerSize="@{@dimen/ongoing_movies_separator}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_ongoing_movies"
+            app:paging="@{true}"
+            app:submitList="@{viewModel.ongoingMoviesList}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_popular_movies"
+            style="@style/TitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:text="@string/movies_popular_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_ongoing_movies" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_popular_movies"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_l"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/text_view_popular_movies" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
