@@ -19,6 +19,7 @@ class MoviesFragment : BaseFragment<MoviesViewModel, FragmentMoviesBinding>(
         with(viewModel) {
             getMovieGenres()
             getMovieInformationWithExpression()
+            getPopularMovies()
         }
     }
 }

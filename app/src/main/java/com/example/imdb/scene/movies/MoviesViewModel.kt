@@ -7,8 +7,10 @@ import com.example.imdb.base.BaseViewModel
 import com.example.imdb.data.remote.model.movies.genre.MovieGenresResponseModel
 import com.example.imdb.data.remote.model.movies.ongoing.GetOngoingMoviesResponseModel
 import com.example.imdb.data.remote.model.movies.ongoing.Result
+import com.example.imdb.data.remote.model.movies.popular.GetPopularMoviesResponseModel
 import com.example.imdb.domain.MovieGenresUseCase
 import com.example.imdb.domain.OngoingMoviesUseCase
+import com.example.imdb.domain.PopularMoviesUseCase
 import com.example.imdb.util.general.Constants.Common.COMMA_SEPARATOR
 import com.example.imdb.util.general.Constants.Common.ROUNDED_RADIUS
 import com.example.imdb.util.general.UseCase
@@ -22,6 +24,7 @@ import javax.inject.Inject
 class MoviesViewModel @Inject constructor(
     private val ongoingMoviesUseCase: OngoingMoviesUseCase,
     private val movieGenresListUseCase: MovieGenresUseCase,
+    private val popularMoviesUseCase: PopularMoviesUseCase,
     application: Application
 ) : BaseViewModel(application), ListAdapterClickListener<OngoingMovieUiModel> {
 
@@ -34,6 +37,10 @@ class MoviesViewModel @Inject constructor(
 
     fun getMovieGenres() = viewModelScope.launch {
         movieGenresListUseCase.run(UseCase.None).either(::handleFailure, ::handleMovieGenres)
+    }
+
+    fun getPopularMovies() = viewModelScope.launch {
+        popularMoviesUseCase.run(UseCase.None).either(::handleFailure, ::handlePopularMovies)
     }
 
     private fun handleOngoingMoviesList(list: GetOngoingMoviesResponseModel?) {
@@ -50,6 +57,9 @@ class MoviesViewModel @Inject constructor(
         list?.genres?.forEach { genre ->
             genres[genre.id ?: 0] = genre.name ?: ""
         }
+    }
+
+    private fun handlePopularMovies(list: GetPopularMoviesResponseModel?) {
     }
 
     private fun getGenresAsString(movie: Result?): String? {
