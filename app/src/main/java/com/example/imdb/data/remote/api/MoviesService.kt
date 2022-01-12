@@ -4,6 +4,7 @@ import com.example.imdb.BuildConfig
 import com.example.imdb.data.remote.model.movies.genre.MovieGenresResponseModel
 import com.example.imdb.data.remote.model.movies.ongoing.GetOngoingMoviesResponseModel
 import com.example.imdb.data.remote.model.movies.popular.GetPopularMoviesResponseModel
+import com.example.imdb.util.general.Constants.Network.API_KEY_STRING
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -25,7 +26,6 @@ interface MoviesService {
     ): GetPopularMoviesResponseModel?
 
     companion object {
-        private const val API_KEY_STRING = "api_key"
         private const val ONGOING_MOVIES = "movie/now_playing"
         private const val MOVIE_GENRES = "genre/movie/list"
         private const val POPULAR_MOVIES = "movie/popular"

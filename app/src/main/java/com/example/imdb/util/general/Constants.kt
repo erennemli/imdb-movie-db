@@ -7,4 +7,8 @@ object Constants {
         const val COMMA_SEPARATOR = ", "
         const val EMPTY = ""
     }
+
+    object Network {
+        const val API_KEY_STRING = "api_key"
+    }
 }

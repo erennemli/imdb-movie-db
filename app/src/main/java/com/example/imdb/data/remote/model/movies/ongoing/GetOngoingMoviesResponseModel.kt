@@ -8,7 +8,7 @@ import com.squareup.moshi.Json
 data class GetOngoingMoviesResponseModel(
     @Json(name ="dates") val dates: Dates?,
     @Json(name ="page") val page: Int?,
-    @Json(name ="results") val results: List<Result>?,
+    @Json(name ="results") val resultOngoingMovies: List<ResultOngoingMovies>?,
     @Json(name ="total_pages") val totalPages: Int?,
     @Json(name ="total_results") val totalResults: Int?
 )
@@ -20,7 +20,7 @@ data class Dates(
 )
 
 @Keep
-data class Result(
+data class ResultOngoingMovies(
     @Json(name ="adult") val adult: Boolean?,
     @Json(name ="backdrop_path") val backdropPath: String?,
     @Json(name ="genre_ids") val genreIds: List<Int>?,

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="uiModel"
+            type="com.example.imdb.view.uimodel.PopularSeriesUiModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_view_poster"
+            android:layout_width="@dimen/popular_series_poster_width"
+            android:layout_height="@dimen/popular_series_poster_height"
+            app:bottomLeft="@{@dimen/margin_l}"
+            app:imageSpecificCornerFromUrl="@{uiModel.posterPath}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:radius="@{uiModel.imageRoundedRadius}"
+            app:topLeft="@{@dimen/margin_l}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_title"
+            style="@style/SubTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_s"
+            android:text="@{uiModel.name}"
+            app:layout_constraintStart_toEndOf="@+id/image_view_poster"
+            app:layout_constraintTop_toTopOf="@+id/image_view_poster"
+            tools:text="Series title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_view_genres"
+            style="@style/SubTitle2Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_s"
+            android:layout_marginTop="@dimen/margin_s"
+            android:text="@{uiModel.genresString}"
+            app:layout_constraintStart_toEndOf="@+id/image_view_poster"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_title"
+            tools:text="Series genre, genre, genre" />
+
+        <LinearLayout
+            android:id="@+id/container_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/popular_series_rating_height"
+            android:layout_marginStart="@dimen/margin_s"
+            android:layout_marginTop="@dimen/margin_s"
+            app:layout_constraintBottom_toBottomOf="@+id/image_view_poster"
+            app:layout_constraintStart_toEndOf="@+id/image_view_poster"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_genres">
+
+            <include
+                layout="@layout/item_rating"
+                android:rating="@{uiModel.voteAverage}" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

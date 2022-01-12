@@ -6,13 +6,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.imdb.base.BaseViewModel
 import com.example.imdb.data.remote.model.movies.genre.MovieGenresResponseModel
 import com.example.imdb.data.remote.model.movies.ongoing.GetOngoingMoviesResponseModel
-import com.example.imdb.data.remote.model.movies.ongoing.Result
 import com.example.imdb.data.remote.model.movies.popular.GetPopularMoviesResponseModel
 import com.example.imdb.domain.MovieGenresUseCase
 import com.example.imdb.domain.OngoingMoviesUseCase
 import com.example.imdb.domain.PopularMoviesUseCase
-import com.example.imdb.util.general.Constants.Common.COMMA_SEPARATOR
-import com.example.imdb.util.general.Constants.Common.EMPTY
 import com.example.imdb.util.general.Constants.Common.ROUNDED_RADIUS
 import com.example.imdb.util.general.ListAdapterItem
 import com.example.imdb.util.general.UseCase
@@ -33,7 +30,6 @@ class MoviesViewModel @Inject constructor(
 
     val ongoingMoviesList: MutableLiveData<List<OngoingMovieUiModel>> = MutableLiveData()
     val popularMoviesList: MutableLiveData<List<PopularMoviesUiModel>> = MutableLiveData()
-    private val genres = hashMapOf<Int, String>()
 
     fun getMovieInformationWithExpression() = viewModelScope.launch {
         ongoingMoviesUseCase.run(UseCase.None).either(::handleFailure, ::handleOngoingMoviesList)
@@ -48,7 +44,7 @@ class MoviesViewModel @Inject constructor(
     }
 
     private fun handleOngoingMoviesList(list: GetOngoingMoviesResponseModel?) {
-        list?.results?.let { results ->
+        list?.resultOngoingMovies?.let { results ->
             if (results.isNotEmpty()) {
                 ongoingMoviesList.postValue(results.map { movie ->
                     movie.toUiModel(ROUNDED_RADIUS, getGenresAsString(movie))
@@ -64,29 +60,11 @@ class MoviesViewModel @Inject constructor(
     }
 
     private fun handlePopularMoviesList(list: GetPopularMoviesResponseModel?) {
-        list?.results?.let { results ->
+        list?.resultPopularMovies?.let { results ->
             if (results.isNotEmpty()) {
                 popularMoviesList.postValue(results.map { movie ->
                     movie.toUiModel(ROUNDED_RADIUS, getGenresAsString(movie))
                 })
-            }
-        }
-    }
-
-    private fun <T> getGenresAsString(movie: T?): String? {
-        return when (movie) {
-            is Result? -> {
-                movie?.genreIds?.map { id -> genres[id] }
-                    ?.joinToString(COMMA_SEPARATOR)
-            }
-
-            is com.example.imdb.data.remote.model.movies.popular.Result? -> {
-                movie?.genreIds?.map { id -> genres[id] }
-                    ?.joinToString(COMMA_SEPARATOR)
-            }
-
-            else -> {
-                EMPTY
             }
         }
     }

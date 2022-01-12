@@ -2,6 +2,7 @@ package com.example.imdb.util.injection
 
 import com.example.imdb.BuildConfig
 import com.example.imdb.data.remote.api.MoviesService
+import com.example.imdb.data.remote.api.SeriesService
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -57,4 +58,10 @@ internal class NetworkModule {
     fun provideMoviesService(
         @Named(BuildConfig.BASE_URL) retrofit: Retrofit
     ): MoviesService = retrofit.create(MoviesService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideSeriesService(
+        @Named(BuildConfig.BASE_URL) retrofit: Retrofit
+    ): SeriesService = retrofit.create(SeriesService::class.java)
 }
