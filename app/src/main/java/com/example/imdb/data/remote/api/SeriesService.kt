@@ -29,6 +29,6 @@ interface SeriesService {
     companion object {
         private const val SERIES_TOP_RATED = "tv/top_rated"
         private const val SERIES_GENRE = "genre/tv/list"
-        private const val SERIES_POPULAR = "/tv/popular"
+        private const val SERIES_POPULAR = "tv/popular"
     }
 }

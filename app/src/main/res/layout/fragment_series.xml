@@ -11,6 +11,10 @@
         <variable
             name="adapterTopRated"
             type="com.example.imdb.adapter.TopRatedSeriesAdapter" />
+
+        <variable
+            name="adapterPopular"
+            type="com.example.imdb.adapter.PopularSeriesAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,10 +67,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="@dimen/margin_m"
+                android:orientation="vertical"
+                app:adapter="@{adapterPopular}"
+                app:dividerSize="@{@dimen/popular_series_separator}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_popular_series" />
+                app:layout_constraintTop_toBottomOf="@+id/text_view_popular_series"
+                app:submitList="@{viewModel.popularSeriesLiveData}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

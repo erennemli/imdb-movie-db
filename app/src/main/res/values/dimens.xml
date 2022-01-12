@@ -21,6 +21,11 @@
     <dimen name="popular_movies_separator">12dp</dimen>
     <dimen name="popular_movies_rating_height">24dp</dimen>
 
+    <dimen name="popular_series_poster_height">90dp</dimen>
+    <dimen name="popular_series_poster_width">60dp</dimen>
+    <dimen name="popular_series_separator">12dp</dimen>
+    <dimen name="popular_series_rating_height">24dp</dimen>
+
     <!-- text size -->
     <dimen name="title">24sp</dimen>
     <dimen name="subtitle">18sp</dimen>

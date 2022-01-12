@@ -1,6 +1,7 @@
 package com.example.imdb.scene.series
 
 import com.example.imdb.R
+import com.example.imdb.adapter.PopularSeriesAdapter
 import com.example.imdb.adapter.TopRatedSeriesAdapter
 import com.example.imdb.base.BaseFragment
 import com.example.imdb.databinding.FragmentSeriesBinding
@@ -15,6 +16,7 @@ class SeriesFragment : BaseFragment<SeriesViewModel, FragmentSeriesBinding>(
         with(binder) {
             viewModel = this@SeriesFragment.viewModel
             adapterTopRated = TopRatedSeriesAdapter(this@SeriesFragment.viewModel)
+            adapterPopular = PopularSeriesAdapter(this@SeriesFragment.viewModel)
         }
 
         with(viewModel) {
