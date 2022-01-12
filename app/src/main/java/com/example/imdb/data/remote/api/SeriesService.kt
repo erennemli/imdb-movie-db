@@ -2,6 +2,7 @@ package com.example.imdb.data.remote.api
 
 import com.example.imdb.BuildConfig
 import com.example.imdb.data.remote.model.series.genre.SeriesGenreResponseModel
+import com.example.imdb.data.remote.model.series.popular.PopularSeriesResponseModel
 import com.example.imdb.data.remote.model.series.toprated.TopRatedSeriesResponseModel
 import com.example.imdb.util.general.Constants
 import com.example.imdb.util.general.Constants.Network.API_KEY_STRING
@@ -20,8 +21,14 @@ interface SeriesService {
         @Query(API_KEY_STRING) apiKey: String? = BuildConfig.API_KEY
     ): SeriesGenreResponseModel?
 
+    @GET(SERIES_POPULAR)
+    suspend fun getPopularSeries(
+        @Query(API_KEY_STRING) apiKey: String? = BuildConfig.API_KEY
+    ): PopularSeriesResponseModel?
+
     companion object {
         private const val SERIES_TOP_RATED = "tv/top_rated"
         private const val SERIES_GENRE = "genre/tv/list"
+        private const val SERIES_POPULAR = "/tv/popular"
     }
 }

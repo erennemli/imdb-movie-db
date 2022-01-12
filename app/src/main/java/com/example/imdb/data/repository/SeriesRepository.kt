@@ -14,4 +14,7 @@ class SeriesRepository @Inject constructor(
 
     suspend fun getSeriesGenres() =
         seriesRemoteDataSource.getSeriesGenres()
+
+    suspend fun getPopularSeries() =
+        seriesRemoteDataSource.getPopularSeries()
 }

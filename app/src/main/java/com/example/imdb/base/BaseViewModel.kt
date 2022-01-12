@@ -11,6 +11,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import com.example.imdb.data.remote.model.movies.ongoing.ResultOngoingMovies
 import com.example.imdb.data.remote.model.movies.popular.ResultPopularMovies
+import com.example.imdb.data.remote.model.series.popular.ResultPopularSeries
 import com.example.imdb.data.remote.model.series.toprated.ResultTopRatedSeries
 import com.example.imdb.util.general.Constants.Common.COMMA_SEPARATOR
 import com.example.imdb.util.general.Constants.Common.EMPTY
@@ -60,6 +61,11 @@ abstract class BaseViewModel(application: Application): AndroidViewModel(applica
             }
 
             is ResultTopRatedSeries? -> {
+                model?.genreIds?.map { id -> genres[id] }
+                    ?.joinToString(COMMA_SEPARATOR)
+            }
+
+            is ResultPopularSeries? -> {
                 model?.genreIds?.map { id -> genres[id] }
                     ?.joinToString(COMMA_SEPARATOR)
             }

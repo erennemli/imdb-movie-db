@@ -20,6 +20,7 @@ class SeriesFragment : BaseFragment<SeriesViewModel, FragmentSeriesBinding>(
         with(viewModel) {
             getSeriesGenres()
             getTopRatedSeries()
+            getPopularSeries()
         }
     }
 }
