@@ -23,7 +23,7 @@ data class SearchMultiUiModel(
     val overview: String?,
     val popularity: Double?,
     val posterPath: String?,
-    val profilePath: Any?,
+    val profilePath: String?,
     val releaseDate: String?,
     val title: String?,
     val video: Boolean?,

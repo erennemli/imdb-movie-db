@@ -11,4 +11,8 @@ object Constants {
     object Network {
         const val API_KEY_STRING = "api_key"
     }
+
+    object Search {
+        const val QUERY_MIN_LENGTH = 2
+    }
 }

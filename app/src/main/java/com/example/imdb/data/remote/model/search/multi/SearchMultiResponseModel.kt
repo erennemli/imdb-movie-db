@@ -28,7 +28,7 @@ data class ResultSearchMulti(
     @Json(name ="overview") val overview: String?,
     @Json(name ="popularity") val popularity: Double?,
     @Json(name ="poster_path") val posterPath: String?,
-    @Json(name ="profile_path") val profilePath: Any?,
+    @Json(name ="profile_path") val profilePath: String?,
     @Json(name ="release_date") val releaseDate: String?,
     @Json(name ="title") val title: String?,
     @Json(name ="video") val video: Boolean?,
@@ -75,6 +75,6 @@ data class KnownForSearchMulti(
     @Json(name ="release_date") val release_date: String?,
     @Json(name ="title") val title: String?,
     @Json(name ="video") val video: Boolean?,
-    @Json(name ="vote_average") val vote_average: Int?,
+    @Json(name ="vote_average") val vote_average: Double?,
     @Json(name ="vote_count") val vote_count: Int?
 )

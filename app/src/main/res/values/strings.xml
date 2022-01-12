@@ -10,4 +10,7 @@
     <string name="series_top_rated_text">Top rated series</string>
     <string name="series_popular_text">Popular series</string>
     <string name="search_hint">Search movies, series or person</string>
+    <string name="search_media_type_movie">Movie</string>
+    <string name="search_media_type_series">Series</string>
+    <string name="search_media_type_cast">Cast</string>
 </resources>
