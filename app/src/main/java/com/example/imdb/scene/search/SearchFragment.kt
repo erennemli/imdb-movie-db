@@ -16,6 +16,7 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>(
             initializedSearchView(requireActivity())
 
             onQueryTextChange = { query ->
+                viewModel.searchMulti(query)
             }
         }
     }
