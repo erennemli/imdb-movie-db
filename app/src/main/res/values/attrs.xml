@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SearchComponent">
+        <attr name="viewBackgroundColor" format="color" />
+        <attr name="rawHint" format="string" />
+    </declare-styleable>
+</resources>
