@@ -4,17 +4,40 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_screen">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/search_text"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/margin_l"
+            android:layout_marginTop="@dimen/margin_l">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_view_screen_title"
+                style="@style/TitleWhiteStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/search_text"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.example.imdb.view.component.SearchComponent
+                android:id="@+id/search_component"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_l"
+                android:layout_marginTop="@dimen/margin_l"
+                app:iconifiedByDefault="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_screen_title"
+                app:queryBackground="@android:color/transparent"
+                app:rawHint="@string/search_hint"
+                app:viewBackgroundColor="@color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

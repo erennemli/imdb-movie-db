@@ -5,6 +5,14 @@ import android.graphics.drawable.GradientDrawable
 import android.view.View
 import androidx.annotation.ColorInt
 
+fun View.show() {
+    this.visibility = View.VISIBLE
+}
+
+fun View.hide() {
+    this.visibility = View.GONE
+}
+
 fun View.setRoundedBackground(
     radius: Float,
     @ColorInt color: Int,

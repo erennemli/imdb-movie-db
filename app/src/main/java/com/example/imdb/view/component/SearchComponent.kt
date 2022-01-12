@@ -9,9 +9,11 @@ import androidx.annotation.ColorInt
 import androidx.fragment.app.FragmentActivity
 import com.example.imdb.R
 import com.example.imdb.databinding.ComponentSearchBinding
+import com.example.imdb.util.extension.hide
 import com.example.imdb.util.extension.init
 import com.example.imdb.util.extension.listenQueryChanges
 import com.example.imdb.util.extension.setRoundedBackground
+import com.example.imdb.util.extension.show
 import com.example.imdb.util.general.BindingComponent
 import com.example.imdb.util.general.Constants.Common.ZERO
 import com.example.imdb.util.general.ViewEntity
@@ -36,6 +38,7 @@ class SearchComponent @JvmOverloads constructor(
         get() = binding.searchView.queryHint
         set(value) {
             binding.searchView.queryHint = value
+            binding.textViewHint.text = value
         }
 
     var viewBackgroundColor: Int
@@ -69,14 +72,17 @@ class SearchComponent @JvmOverloads constructor(
 
             setOnClickListener {
                 isIconified = false
+                binding.textViewHint.hide()
                 onSearchClickListener?.invoke(true)
             }
 
             setOnSearchClickListener {
+                binding.textViewHint.hide()
                 onSearchClickListener?.invoke(true)
             }
 
             setOnCloseListener {
+                binding.textViewHint.show()
                 onSearchClickListener?.invoke(false)
                 false
             }
