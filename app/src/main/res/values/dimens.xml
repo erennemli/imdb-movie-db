@@ -28,6 +28,10 @@
 
     <dimen name="search_height">50dp</dimen>
     <dimen name="margin_search_hint">40dp</dimen>
+    <dimen name="search_poster_height">90dp</dimen>
+    <dimen name="search_poster_width">60dp</dimen>
+    <dimen name="search_list_divider_size">6dp</dimen>
+    <dimen name="search_item_stroke_width">2dp</dimen>
 
     <!-- text size -->
     <dimen name="title">24sp</dimen>

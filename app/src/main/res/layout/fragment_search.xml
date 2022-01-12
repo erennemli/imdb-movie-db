@@ -2,6 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.imdb.scene.search.SearchViewModel" />
+
+        <variable
+            name="adapterSearch"
+            type="com.example.imdb.adapter.SearchAdapter" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,6 +47,21 @@
                 app:queryBackground="@android:color/transparent"
                 app:rawHint="@string/search_hint"
                 app:viewBackgroundColor="@color/white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_search"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_l"
+                android:orientation="vertical"
+                app:adapter="@{adapterSearch}"
+                app:dividerSize="@{@dimen/search_list_divider_size}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_component"
+                app:submitList="@{viewModel.searchMultiLiveData}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

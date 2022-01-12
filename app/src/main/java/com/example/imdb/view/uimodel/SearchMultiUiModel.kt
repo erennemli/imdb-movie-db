@@ -28,5 +28,6 @@ data class SearchMultiUiModel(
     val title: String?,
     val video: Boolean?,
     val voteAverage: Double?,
-    val voteCount: Int?
+    val voteCount: Int?,
+    val imageRadius: Int? = null
 ) : ListAdapterItem

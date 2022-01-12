@@ -1,6 +1,7 @@
 package com.example.imdb.scene.search
 
 import com.example.imdb.R
+import com.example.imdb.adapter.SearchAdapter
 import com.example.imdb.base.BaseFragment
 import com.example.imdb.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -12,11 +13,16 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>(
     override fun initialize() {
         super.initialize()
 
-        binder.searchComponent.apply {
-            initializedSearchView(requireActivity())
+        with(binder) {
+            viewModel = this@SearchFragment.viewModel
+            adapterSearch = SearchAdapter(this@SearchFragment.viewModel)
 
-            onQueryTextChange = { query ->
-                viewModel.searchMulti(query)
+            searchComponent.apply {
+                initializedSearchView(requireActivity())
+
+                onQueryTextChange = { query ->
+                    this@SearchFragment.viewModel.searchMulti(query)
+                }
             }
         }
     }

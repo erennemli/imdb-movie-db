@@ -35,7 +35,7 @@ data class ResultSearchMulti(
     @Json(name ="vote_average") val voteAverage: Double?,
     @Json(name ="vote_count") val voteCount: Int?
 ) {
-    fun toUiModel() = SearchMultiUiModel(
+    fun toUiModel(imageRadius: Int?) = SearchMultiUiModel(
         adult = adult,
         backdropPath = backdropPath,
         firstAirDate = firstAirDate,
@@ -58,7 +58,8 @@ data class ResultSearchMulti(
         title = title,
         video = video,
         voteAverage = voteAverage,
-        voteCount = voteCount
+        voteCount = voteCount,
+        imageRadius = imageRadius
     )
 }
 
