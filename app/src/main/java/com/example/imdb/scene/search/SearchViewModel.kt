@@ -10,6 +10,7 @@ import com.example.imdb.data.remote.model.search.multi.SearchMultiResponseModel
 import com.example.imdb.domain.SearchMultiUseCase
 import com.example.imdb.util.general.Constants.Common.ROUNDED_RADIUS
 import com.example.imdb.util.general.Constants.Search.QUERY_MIN_LENGTH
+import com.example.imdb.util.general.Constants.Search.SEARCH_INTERVAL
 import com.example.imdb.util.general.ListAdapterItem
 import com.example.imdb.util.listener.ListAdapterClickListener
 import com.example.imdb.view.uimodel.SearchMultiUiModel
@@ -31,7 +32,7 @@ class SearchViewModel @Inject constructor(
             if (it.length > QUERY_MIN_LENGTH) {
                 handler.postDelayed({
                     requestSearchMultiResponse(query)
-                }, 250L)
+                }, SEARCH_INTERVAL)
             } else {
                 searchMultiLiveData.postValue(null)
             }
