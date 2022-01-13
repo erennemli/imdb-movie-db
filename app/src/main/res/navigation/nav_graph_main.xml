@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_main"
     app:startDestination="@id/fragment_movies">
+
+    <argument
+        android:name="@string/arg_show_bottom_navigation"
+        android:defaultValue="true"
+        app:argType="boolean" />
+
     <fragment
         android:id="@+id/fragment_movies"
         android:name="com.example.imdb.scene.movies.MoviesFragment"

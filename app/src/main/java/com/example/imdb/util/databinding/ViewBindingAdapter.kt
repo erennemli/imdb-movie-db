@@ -1,7 +1,9 @@
 package com.example.imdb.util.databinding
 
+import android.view.View
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
@@ -86,4 +88,9 @@ fun setSpecificCornerRoundedImage(
         errorRes = errorRes ?: defaultDrawable,
         radius = radius
     )
+}
+
+@BindingAdapter("visibleIf")
+fun visibleIf(view: View, shouldVisible: Boolean) {
+    view.isVisible = shouldVisible
 }

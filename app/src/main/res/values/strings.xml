@@ -1,16 +1,29 @@
 <resources>
     <string name="app_name">iMDB</string>
 
+    <!-- bottom navigation tabs -->
     <string name="movies_text">Movies</string>
     <string name="series_text">Series</string>
     <string name="search_text">Search</string>
     <string name="profile_text">Profile</string>
+
+    <!-- movie -->
     <string name="movies_ongoing_text">Ongoing movies</string>
     <string name="movies_popular_text">Popular movies</string>
+
+    <!-- series -->
     <string name="series_top_rated_text">Top rated series</string>
     <string name="series_popular_text">Popular series</string>
+
+    <!-- search -->
     <string name="search_hint">Search movies, series or person</string>
     <string name="search_media_type_movie">Movie</string>
     <string name="search_media_type_series">Series</string>
     <string name="search_media_type_cast">Cast</string>
+
+    <!-- login -->
+    <string name="login_text">Login</string>
+
+    <!-- Non-translatable -->
+    <string name="arg_show_bottom_navigation" translatable="false">show_bottom_nav</string>
 </resources>
