@@ -13,6 +13,9 @@ object Constants {
     }
 
     object Search {
+        const val MOVIE = "movie"
+        const val SERIES = "series"
+        const val CAST = "cast"
         const val QUERY_MIN_LENGTH = 2
     }
 }

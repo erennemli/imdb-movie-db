@@ -2,6 +2,7 @@ package com.example.imdb.view.uimodel
 
 import androidx.annotation.Keep
 import com.example.imdb.data.remote.model.search.multi.KnownForSearchMulti
+import com.example.imdb.scene.search.SearchType
 import com.example.imdb.util.general.ListAdapterItem
 
 @Keep
@@ -30,4 +31,13 @@ data class SearchMultiUiModel(
     val voteAverage: Double?,
     val voteCount: Int?,
     val imageRadius: Int? = null
-) : ListAdapterItem
+) : ListAdapterItem {
+    var mediaTypeInt: Int? = null
+    init {
+        mediaTypeInt = when (mediaType) {
+            SearchType.MOVIE_TYPE.title -> SearchType.MOVIE_TYPE.ordinal
+            SearchType.SERIES_TYPE.title -> SearchType.SERIES_TYPE.ordinal
+            else -> SearchType.CAST_TYPE.ordinal
+        }
+    }
+}
