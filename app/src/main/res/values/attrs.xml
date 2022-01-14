@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="DefaultInputStyle" format="reference" />
+
     <declare-styleable name="SearchComponent">
         <attr name="viewBackgroundColor" format="color" />
         <attr name="rawHint" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="DefaultInput">
+        <attr name="required" format="boolean" />
+        <attr name="editable" format="boolean" />
+        <attr name="viewFocusable" format="boolean" />
+        <attr name="rawHint" />
+        <attr name="appBoxBackgroundColor" format="color" />
+        <attr name="textMaxLength" format="integer" />
+        <attr name="rawHelper" format="string" />
+        <attr name="iconEnd" format="reference" />
+        <attr name="matches" format="reference" />
+        <attr name="rawText" format="string" />
+        <attr name="rawTextSize" format="dimension" />
+        <attr name="rawTextColor" format="color" />
+        <attr name="rawHintColor" format="color" />
+        <attr name="rawHintAppearance" format="reference" />
+        <attr name="rawCollapseHintColor" format="color" />
+        <attr name="rawHelperColor" format="color" />
+        <attr name="android:inputType" />
+        <attr name="hasRowClickable" format="boolean" />
+        <attr name="errorColor" format="color" />
+        <attr name="isUnderlineVisible" format="boolean" />
+        <attr name="hasClearButton" format="boolean" />
+        <attr name="hasPasswordToggle" format="boolean" />
+        <attr name="isMultiLine" format="boolean" />
+        <attr name="systemEndIconColor" format="color" />
+        <attr name="hasRawTextPadding" format="boolean" />
     </declare-styleable>
 </resources>

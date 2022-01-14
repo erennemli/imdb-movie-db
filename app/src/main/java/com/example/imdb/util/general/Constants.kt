@@ -6,6 +6,9 @@ object Constants {
         const val ROUNDED_RADIUS = 16
         const val COMMA_SEPARATOR = ", "
         const val EMPTY = ""
+        const val INVALID_RES = -1
+        const val MAX_INPUT_LENGTH = 256
+        const val DOT = '\u2B24'
     }
 
     object Network {

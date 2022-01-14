@@ -32,4 +32,8 @@
         <item name="android:textSize">@dimen/rating</item>
         <item name="android:typeface">sans</item>
     </style>
+
+    <style name="TextHintAppearance" parent="TextAppearance.Design.Hint">
+        <item name="android:typeface">sans</item>
+    </style>
 </resources>
