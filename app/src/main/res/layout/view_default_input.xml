@@ -1,0 +1,26 @@
+<com.google.android.material.textfield.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/textInputLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:gravity="bottom"
+    android:layout_marginBottom="8dp"
+    android:theme="?attr/textInputStyle"
+    app:hintEnabled="true"
+    app:startIconTint="@null"
+    android:focusable="true">
+
+    <com.example.imdb.view.component.TextInputEditText
+        android:id="@+id/textInputEditText"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="@dimen/subtitle"
+        android:focusable="true" />
+
+</com.google.android.material.textfield.TextInputLayout>
